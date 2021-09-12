@@ -32,8 +32,7 @@ def datatable():
 def apiMahasiswa():
     status, data = db.select(
         'SELECT * FROM mahasiswa_baru WHERE nim LIKE %(nim)s',
-        nim='672000%'
-    )
+        nim='672000%')
     if status:
         return jsonify({'data': data}), 200
     else:
