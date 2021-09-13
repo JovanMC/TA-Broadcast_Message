@@ -3,7 +3,54 @@
 {% block body %}
     <script>
         webix.ready(function () {
-            window.webixUI({template: "Form"})
+            let data =[]
+            const FORM = {
+                id: "form", view: "form",
+                elements: [
+                    {view: "text", label: "Nama", name: "nama", labelwidth: 150},
+                    {view: "text", label: "Email", name: "email", labelwidth: 150},
+                    {view: "text", label: "Password", name: "password", labelwidth: 150},
+                    {id: "button-kirim", view: "button", value: "Send"},
+                ],
+            }
+            window.webixUI({rows: [FORM]})
+            let formMahasiswa = $$("form")
+            let datatable= $$("mahasiswa")
+            let buttonKirim = $$("button-kirim")
+            webix.extend(formMahasiswa, webix.ProgressBar)
+
+            buttonKirim.attachEvent("onItemClick", function () {
+                webix.confirm({
+                     title:"Action",
+                     ok:"Yes", cancel:"No",
+                         text:"Send ?"
+                     }) .then(function(){
+                formMahasiswa.disable()
+                formMahasiswa.showProgress()
+
+
+                webix.ajax().post('/register', formMahasiswa.getValues())
+                    .then(function (response) {
+                        let json = response.json()
+                        webix.message({type: "info", text: json.message})
+
+                    })
+                    .catch(function (response) {
+                        webix.message({type: "error",text: "kirim pesan Error! "})
+                    })
+                .finally(function (){
+                    {#window.location.href = ("/")#}
+                    formMahasiswa.enable()
+                    formMahasiswa.hideProgress()
+                    datatable.refresh()
+
+                })
+            })
+               .fail(function(){
+            webix.message("Cancel");
+        });
+
+            })
         })
     </script>
 {% endblock %}

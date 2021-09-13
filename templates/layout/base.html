@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Example</title>
+    <title>PubSub</title>
     <link href="/assets/favicon.ico" rel="icon" type="image/x-icon">
     <link href="/assets/webix/webix.min.css" rel="stylesheet" type="text/css">
     <link href="/assets/mdi/css/materialdesignicons.min.css" rel="stylesheet" type="text/css">
@@ -19,19 +19,20 @@
 
             const MENU_DATA = [
                 {
-                    id: "flask", value: "Flask", icon: "mdi mdi-flask", data: [
-                        {id: "form", value: "Form", icon: "mdi mdi-form-textbox"},
-                        {id: "datatable", value: "Data Table", icon: "mdi mdi-table"},
+                    id: "flask", value: "PubSub", icon: "mdi mdi-flask", data: [
+                        {id: "form", value: "Registrasi", icon: "mdi mdi-form-textbox"},
+                        {#{id: "datatable", value: "Subscribe", icon: "mdi mdi-table"},#}
                     ],
                 },
             ]
             const TOOLBAR = {
                 view: "toolbar", padding: 3, elements: [
                     {view: "icon", icon: "mdi mdi-menu"},
-                    {view: "label", label: "Example"},
+                    {view: "label", label: "Redis"},
                 ],
             }
             const SIDEBAR = {
+                id:"a1",
                 cols: [
                     {view: "sidebar", data: MENU_DATA},
                     {type: "space", rows: [view]},

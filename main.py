@@ -1,43 +1,54 @@
-from flask import Flask, jsonify, redirect, render_template
+from flask import Flask, jsonify,  render_template, request
+import redis
+# mengimport function randint
+from random import randint
 
-import config
-from common.satconnectserver import PostgreDatabase
 
+conn = redis.Redis(host='localhost', port=6379, db=0)
 app = Flask(__name__, static_folder='assets')
-db = PostgreDatabase(
-    host=config.DB_HOST,
-    port=config.DB_PORT,
-    database=config.DB_NAME,
-    username=config.DB_USER,
-    password=config.DB_PASS,
-    logName=config.LOG_NAME)
-
-
-@app.route('/', methods=['GET'])
-def index():
-    return redirect('/form')
-
 
 @app.route('/form', methods=['GET'])
 def form():
     return render_template('form.html')
 
+@app.route('/form2', methods=['GET'])
+def form2():
+    return render_template('form2.html')
 
-@app.route('/datatable', methods=['GET'])
-def datatable():
-    return render_template('datatable.html')
+@app.route('/form3', methods=['GET'])
+def form3():
+    return render_template('form3.html')
 
+kodefix=[]
+@app.route('/register', methods=['POST'])
+def register_Data():
+    # mengenerate 5 bil bulat 0 s/d 10
+    kode = randint(1000, 9999)
+    print(kode)
+    kodefix.append(kode)
+    data=[]
+    nama = request.form.get('nama')
+    email= request.form.get('email')
+    password= request.form.get('password')
+    data.append(nama)
+    data.append(email)
+    data.append(password)
+    data.append(kode)
+    print(data)
+    conn.publish("register",str(data))
+    return jsonify({'message': 'Silahkan aktivasi cek email anda untuk aktivasi!'})
 
-@app.route('/api/mahasiswa', methods=['POST'])
-def apiMahasiswa():
-    status, data = db.select(
-        'SELECT * FROM mahasiswa_baru WHERE nim LIKE %(nim)s',
-        nim='672000%')
-    if status:
-        return jsonify({'data': data}), 200
+@app.route('/konfirmasi_Kode', methods=['POST'])
+def kode():
+
+    kode = request.form.get('kode')
+    print(kode)
+    print(kodefix[0])
+    if kode == str(kodefix[0]):
+        result = jsonify({'message': 'Registrasi Berhasil'})
     else:
-        return jsonify({'data': data}), 500
-
+        result = jsonify({'message': 'Kode Registrasi Salah'})
+    return result
 
 if __name__ == '__main__':
     app.env = 'development'

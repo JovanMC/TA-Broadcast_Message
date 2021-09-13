@@ -1,2 +1,2 @@
-service: example
+service: jovantest
 runtime: python38
