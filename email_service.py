@@ -19,17 +19,12 @@ while True:
         sent_to = [value[1]]
         sent_subject = "Registrasi PubSub Redis"
         sent_body = ("Registrasi PUBSUB Succesfull")
-
         email_text = """\
-
         Terima kasih sudah melakukan registrasi di PubSub\n
         Kode Registrasi anda adalah : %s
-    
         """ % (value[3])
-
         message = """From: %s\nTo: %s\nSubject: %s\n\n%s
                     """ % (sent_from, ", ".join(sent_to), sent_subject, email_text)
-
 
         try:
             server = smtplib.SMTP_SSL('smtp.gmail.com', 465)

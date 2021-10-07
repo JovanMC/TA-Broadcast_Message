@@ -40,7 +40,6 @@ def register_Data():
 
 @app.route('/konfirmasi_Kode', methods=['POST'])
 def kode():
-
     kode = request.form.get('kode')
     print(kode)
     print(kodefix[0])

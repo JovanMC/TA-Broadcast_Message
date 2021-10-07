@@ -20,31 +20,28 @@
             {template:"<div style='color: #1c1c1c'><h1 style='text-align: center;'>Registrasi</h1></br><p style='text-align: center'>Silahkan Cek Email anda untuk kode Registrasi</p></div>"},
             {view: "text", label: "Kode", name: "kode", labelwidth: 150},
             {id: "button-kirim", view: "button", value: "Submit", click: save},
-                ] } ,{}] },{}]
-});
-let formMahasiswa = $$("form")
-webix.extend(formMahasiswa, webix.ProgressBar)
-function save() {
-                formMahasiswa.disable()
-                formMahasiswa.showProgress()
-                webix.ajax().post('/konfirmasi_Kode', formMahasiswa.getValues())
-                    .then(function (response) {
-                        let json = response.json()
-                        webix.message({type: "info", text: json.message})
-                    })
-                    .catch(function (response) {
-                        webix.message({type: "error",text: "kirim pesan Error! "})
-                    })
-                .finally(function (){
+        ] } ,{}] },{}]
+    });
+
+    let formMahasiswa = $$("form")
+    webix.extend(formMahasiswa, webix.ProgressBar)
+    function save() {
+        formMahasiswa.disable()
+        formMahasiswa.showProgress()
+        webix.ajax().post('/konfirmasi_Kode', formMahasiswa.getValues())
+            .then(function (response) {
+                let json = response.json()
+                webix.message({type: "info", text: json.message})
+            })
+            .catch(function (response) {
+                webix.message({type: "error",text: "kirim pesan Error! "})
+            })
+            .finally(function (){
                     {#window.location.href = ("/")#}
-                    formMahasiswa.enable()
-                    formMahasiswa.hideProgress()
-                })
-
-
-}
-
+                formMahasiswa.enable()
+                formMahasiswa.hideProgress()
+            })
+    }
 </script>
-
 </body>
 </html>
