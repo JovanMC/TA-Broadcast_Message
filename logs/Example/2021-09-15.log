@@ -1,0 +1,4 @@
+08:38:36 ERROR invalid input syntax for type date: "NaN-NaN-NaN NaN:NaN:NaN"
+LINE 1: ...asiswa_baru SET  nama = 'noviii' , tanggal_lahir= 'NaN-NaN-N...
+                                                             ^
+

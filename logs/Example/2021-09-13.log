@@ -1,0 +1,103 @@
+09:57:31 ERROR could not connect to server: Invalid argument (0x00002726/10022)
+	Is the server running locally and accepting
+	connections on Unix domain socket "/cloudsql/sat-kapita-selekta-b:asia-southeast2:training-kapita-selekta/.s.PGSQL.5432"?
+
+09:59:42 ERROR could not connect to server: Invalid argument (0x00002726/10022)
+	Is the server running locally and accepting
+	connections on Unix domain socket "/cloudsql/sat-kapita-selekta-b:asia-southeast2:training-kapita-selekta/.s.PGSQL.5432"?
+
+09:59:56 ERROR could not connect to server: Invalid argument (0x00002726/10022)
+	Is the server running locally and accepting
+	connections on Unix domain socket "/cloudsql/sat-kapita-selekta-b:asia-southeast2:training-kapita-selekta/.s.PGSQL.5432"?
+
+10:01:50 ERROR could not connect to server: Invalid argument (0x00002726/10022)
+	Is the server running locally and accepting
+	connections on Unix domain socket "/cloudsql/sat-kapita-selekta-b:asia-southeast2:training-kapita-selekta/.s.PGSQL.5432"?
+
+10:02:28 ERROR could not connect to server: Invalid argument (0x00002726/10022)
+	Is the server running locally and accepting
+	connections on Unix domain socket "/cloudsql/sat-kapita-selekta-b:asia-southeast2:training-kapita-selekta/.s.PGSQL.5432"?
+
+10:03:11 ERROR could not connect to server: Invalid argument (0x00002726/10022)
+	Is the server running locally and accepting
+	connections on Unix domain socket "/cloudsql/sat-kapita-selekta-b:asia-southeast2:training-kapita-selekta/.s.PGSQL.5432"?
+
+11:20:57 ERROR syntax error at or near ")"
+LINE 1: ...a, tanggal_lahir) VALUES ('672018086','Jovan','12-06-2000',)
+                                                                      ^
+
+11:21:37 ERROR syntax error at or near ")"
+LINE 1: ...a, tanggal_lahir) VALUES ('672018086','Jovan','12-06-2000',)
+                                                                      ^
+
+11:23:57 ERROR syntax error at or near ")"
+LINE 1: ...a, tanggal_lahir) VALUES ('672018086','Jovan','12-06-2000',)
+                                                                      ^
+
+11:32:24 ERROR duplicate key value violates unique constraint "table_name_pk"
+DETAIL:  Key (nim)=(672018086) already exists.
+
+12:00:05 ERROR duplicate key value violates unique constraint "table_name_pk"
+DETAIL:  Key (nim)=(6720182898923) already exists.
+
+12:00:08 ERROR duplicate key value violates unique constraint "table_name_pk"
+DETAIL:  Key (nim)=(6720182898923) already exists.
+
+12:55:33 ERROR duplicate key value violates unique constraint "table_name_pk"
+DETAIL:  Key (nim)=(787878) already exists.
+
+12:57:35 ERROR duplicate key value violates unique constraint "table_name_pk"
+DETAIL:  Key (nim)=(672018086) already exists.
+
+13:23:51 ERROR duplicate key value violates unique constraint "table_name_pk"
+DETAIL:  Key (nim)=(672020087) already exists.
+
+13:50:48 ERROR duplicate key value violates unique constraint "table_name_pk"
+DETAIL:  Key (nim)=() already exists.
+
+13:51:24 ERROR duplicate key value violates unique constraint "table_name_pk"
+DETAIL:  Key (nim)=() already exists.
+
+13:51:59 ERROR duplicate key value violates unique constraint "table_name_pk"
+DETAIL:  Key (nim)=(awd) already exists.
+
+13:52:03 ERROR duplicate key value violates unique constraint "table_name_pk"
+DETAIL:  Key (nim)=(awd) already exists.
+
+13:52:06 ERROR duplicate key value violates unique constraint "table_name_pk"
+DETAIL:  Key (nim)=(awd) already exists.
+
+16:10:06 ERROR argument formats can't be mixed
+16:10:25 ERROR argument formats can't be mixed
+16:13:37 ERROR invalid input syntax for type date: "NaN-NaN-NaN NaN:NaN:NaN"
+LINE 1: ...swa_baru SET  nama = 'Ubud Band' , tanggal_lahir= 'NaN-NaN-N...
+                                                             ^
+
+16:48:35 ERROR invalid input syntax for type date: "NaN-NaN-NaN NaN:NaN:NaN"
+LINE 1: ...siswa_baru SET  nama = 'Testing' , tanggal_lahir= 'NaN-NaN-N...
+                                                             ^
+
+16:48:37 ERROR invalid input syntax for type date: "NaN-NaN-NaN NaN:NaN:NaN"
+LINE 1: ...siswa_baru SET  nama = 'Testing' , tanggal_lahir= 'NaN-NaN-N...
+                                                             ^
+
+16:48:40 ERROR invalid input syntax for type date: "NaN-NaN-NaN NaN:NaN:NaN"
+LINE 1: ...siswa_baru SET  nama = 'Testing' , tanggal_lahir= 'NaN-NaN-N...
+                                                             ^
+
+16:48:43 ERROR invalid input syntax for type date: "NaN-NaN-NaN NaN:NaN:NaN"
+LINE 1: ...asiswa_baru SET  nama = 'Testin' , tanggal_lahir= 'NaN-NaN-N...
+                                                             ^
+
+16:48:46 ERROR invalid input syntax for type date: "NaN-NaN-NaN NaN:NaN:NaN"
+LINE 1: ... mahasiswa_baru SET  nama = 'da' , tanggal_lahir= 'NaN-NaN-N...
+                                                             ^
+
+20:20:03 ERROR invalid input syntax for type date: "NaN-NaN-NaN NaN:NaN:NaN"
+LINE 1: ...nama = 'love u hanna, by: dimas' , tanggal_lahir= 'NaN-NaN-N...
+                                                             ^
+
+21:19:58 ERROR invalid input syntax for type date: "NaN-NaN-NaN NaN:NaN:NaN"
+LINE 1: ...nama = 'love u hanna, by: dimas' , tanggal_lahir= 'NaN-NaN-N...
+                                                             ^
+

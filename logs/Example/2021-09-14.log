@@ -1,0 +1,18 @@
+08:22:03 ERROR invalid input syntax for type date: "NaN-NaN-NaN NaN:NaN:NaN"
+LINE 1: ...wa_baru SET  nama = 'Aku siapa?' , tanggal_lahir= 'NaN-NaN-N...
+                                                             ^
+
+08:22:06 ERROR invalid input syntax for type date: "NaN-NaN-NaN NaN:NaN:NaN"
+LINE 1: ...wa_baru SET  nama = 'Aku siapa?' , tanggal_lahir= 'NaN-NaN-N...
+                                                             ^
+
+09:39:42 ERROR invalid input syntax for type date: "NaN-NaN-NaN NaN:NaN:NaN"
+LINE 1: ... = 'semangatt semangatt oke oke' , tanggal_lahir= 'NaN-NaN-N...
+                                                             ^
+
+09:48:41 ERROR duplicate key value violates unique constraint "table_name_pk"
+DETAIL:  Key (nim)=(123) already exists.
+
+09:53:04 ERROR duplicate key value violates unique constraint "table_name_pk"
+DETAIL:  Key (nim)=(123) already exists.
+
