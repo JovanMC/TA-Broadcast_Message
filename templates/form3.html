@@ -32,12 +32,12 @@
             .then(function (response) {
                 let json = response.json()
                 webix.message({type: "info", text: json.message})
+                window.location.href = ("/form4")
             })
             .catch(function (response) {
                 webix.message({type: "error",text: "kirim pesan Error! "})
             })
             .finally(function (){
-                    {#window.location.href = ("/")#}
                 formMahasiswa.enable()
                 formMahasiswa.hideProgress()
             })

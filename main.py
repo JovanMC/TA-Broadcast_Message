@@ -19,12 +19,15 @@ def form2():
 def form3():
     return render_template('form3.html')
 
+@app.route('/form4', methods=['GET'])
+def form4():
+    return render_template('form4.html')
+
 kodefix=[]
 @app.route('/register', methods=['POST'])
 def register_Data():
     # mengenerate 5 bil bulat 0 s/d 10
     kode = randint(1000, 9999)
-    print(kode)
     kodefix.append(kode)
     data=[]
     nama = request.form.get('nama')
