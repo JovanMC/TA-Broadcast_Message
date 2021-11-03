@@ -1,9 +1,5 @@
 from flask import Flask, jsonify,  render_template, request
 import redis
-# mengimport function randint
-from random import randint
-
-
 conn = redis.Redis(host='localhost', port=6379, db=0)
 app = Flask(__name__, static_folder='assets')
 
@@ -27,8 +23,6 @@ kodefix=[]
 @app.route('/register', methods=['POST'])
 def register_Data():
     # mengenerate 5 bil bulat 0 s/d 10
-    kode = randint(1000, 9999)
-    kodefix.append(kode)
     data=[]
     nama = request.form.get('nama')
     email= request.form.get('email')

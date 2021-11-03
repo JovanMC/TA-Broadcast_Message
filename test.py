@@ -1,12 +1,4 @@
-# import ast
-# text = "['hello',1]"
-#
-# value = ast.literal_eval(text)
-# print(type(value))
-#serialize, ast
-import pickle
-class user():
-    def __init__(self):
-        self.email = "jovan@gmail.com"
-        self.nama = "jovan"
-        self.password = 123
+import re
+str = "Selamat Belajar PYTHON"
+exc = re.search("\s", str)
+print("Karakter spasi putih pertama berada di:", exc.start())
