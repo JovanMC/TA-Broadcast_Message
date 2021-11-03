@@ -1,4 +1,3 @@
-import smtplib
 import redis
 import ast
 import os
