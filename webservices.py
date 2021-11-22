@@ -2,24 +2,19 @@ import redis
 conn = redis.Redis(host='localhost', port=6379, db=0)
 
 condition = True
-print("Redis Pubsub")
 
-
-print("1. Ip Toko\n2. Aplikasi Running\n3. Kapasitas Harddisk\n4. Cek Nama Pc\n5. Keluar")
+print("Head Office Redis")
+data=[]
 while condition == True:
-    pilih = input("Pilihan :")
+    pilih = input("1.Kirim Pesan\n2.Keluar\nMasukan Pilihan :")
     if pilih == "1":
-        conn.publish("toko", "1")
-        print("Ip diproses")
-    elif pilih =="2":
-        conn.publish("toko", "2")
-        print("Pengecekan Aplikasi Running diproses")
-    elif pilih=="3":
-        conn.publish("toko", "3")
-        print("Pengecekan Kapasitas Harddisk Diproses")
-    elif pilih=="4":
-        conn.publish("toko", "4")
-        print("Pengecekan Kapasitas Harddisk Diproses")
+        title = input("Masukan Title: ")
+        pesan = input("Masukan Pesan: ")
+        data = []
+        data.append(title)
+        data.append(pesan)
+        conn.publish("toko", str(data))
+        print("Pesan Terkirim")
     else :
         condition=False
 
