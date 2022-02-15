@@ -1,59 +1,94 @@
-{% extends 'layout/base.html' %}
+{% extends 'layout/base.html' %} {% block body %}
+<script>
+  webix.ready(function () {
+    let data = [];
+    const FORM = {
+      id: "form",
+      view: "form",
+      width: 1200,
+      elements: [
+        {
+          name: "title",
+          view: "combo",
+          label: "Title",
+          value: "Pengumuman",
+          options: [
+            { id: "Pengumuman", value: "Pengumuman" },
+            { id: "Peringatan", value: "Peringatan" },
+            { id: "Info_Diskon", value: "Info Diskon" },
+            { id: "Info_Harga", value: "Info Harga" },
+          ],
+          labelwidth: 150,
+        },
+        {
+          id: "message",
+          view: "text",
+          label: "Message",
+          name: "message",
+          labelwidth: 150,
+        },
+        {
+          view: "text",
+          label: "To",
+          name: "to",
+          value: "Toko Cabang",
+          disabled: true,
+          labelwidth: 150,
+        },
+        {
+          id: "button-kirim",
+          view: "button",
+          value: "Send",
+          width: 400,
+          css: "webix_primary",
+          align: "center",
+        },
+      ],
+    };
+    window.webixUI({ rows: [FORM] });
+    let formMahasiswa = $$("form");
+    let buttonKirim = $$("button-kirim");
 
-{% block body %}
-    <script>
-        webix.ready(function () {
-            let data =[]
-            const FORM = {
-                id: "form", view: "form",
-                elements: [
-                    {name: "title",view: "combo", label: "Title", value: "Pengumuman",
-                       options: [
-                        { id: "Pengumuman", value: "Pengumuman" },
-                        { id: "Peringatan", value: "Peringatan" },
-                        { id: "Info_Diskon", value: "Info Diskon"},
-                        { id: "Info_Harga", value: "Info Harga"},
-                    ],
-                        labelwidth: 150},
-                    {view: "text", label: "Message", name: "message", labelwidth: 150},
-                    {view: "text", label: "To", name: "to", value:"Toko Cabang", disabled:true, labelwidth: 150},
-                    {id: "button-kirim", view: "button", value: "Send"},
-                ],
-            }
-            window.webixUI({rows: [FORM]})
-            let formMahasiswa = $$("form")
-            let buttonKirim = $$("button-kirim")
-            webix.extend(formMahasiswa, webix.ProgressBar)
+    webix.extend(formMahasiswa, webix.ProgressBar);
 
-            buttonKirim.attachEvent("onItemClick", function () {
-                webix.confirm({
-                     title:"Action",
-                     ok:"Yes", cancel:"No",
-                         text:"Send ?"
-                     }) .then(function(){
-                formMahasiswa.disable()
-                formMahasiswa.showProgress()
+    buttonKirim.attachEvent("onItemClick", function () {
+      let a = formMahasiswa.getValues();
+      let b = a.message;
+      if (b == "") {
+        webix.message({ type: "info", text: "Message masih kosong !" });
+      } else {
+        webix
+          .confirm({
+            title: "Action",
+            ok: "Yes",
+            cancel: "No",
+            text: "Send ?",
+          })
+          .then(function () {
+            formMahasiswa.disable();
+            formMahasiswa.showProgress();
 
-
-                webix.ajax().post('/sendMessage', formMahasiswa.getValues())
-                    .then(function (response) {
-                        let json = response.json()
-                        webix.message({type: "info", text: json.message})
-
-                    })
-                    .catch(function (response) {
-                        webix.message({type: "error",text: "kirim pesan Gagal! "})
-                    })
-                .finally(function (){
-                    formMahasiswa.enable()
-                    formMahasiswa.hideProgress()
-                })
-            })
-               .fail(function(){
+            webix
+              .ajax()
+              .post("/sendMessage", formMahasiswa.getValues())
+              .then(function (response) {
+                let json = response.json();
+                webix.message({ type: "info", text: json.message });
+              })
+              .catch(function (response) {
+                webix.message({ type: "error", text: "kirim pesan Gagal! " });
+              })
+              .finally(function () {
+                $$("message").setValue("");
+                formMahasiswa.enable();
+                formMahasiswa.hideProgress();
+              });
+          })
+          .fail(function () {
             webix.message("Cancel");
-        });
-
-            })
-        })
-    </script>
+          });
+      }
+    });
+  });
+</script>
 {% endblock %}
